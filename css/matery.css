@@ -9,15 +9,15 @@
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .container {
-        width: 90%;
+        width: 100%;
     }
 }
 
 /*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
     .container {
-        width: 90%;
-        max-width: 1125px;
+        width: 100%;
+        max-width: 1800px;
     }
 
     .head-container {
@@ -27,8 +27,8 @@
     }
 
     .post-container {
-        width: 90%;
-        margin: 0 auto;
+        width: 100%;
+        margin: 54px 104px;
         max-width: 1250px;
     }
 }
