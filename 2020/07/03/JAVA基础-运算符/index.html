@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据类型转换, Hexo">
+    <meta name="keywords" content="JAVA基础-运算符, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据类型转换 | Hexo</title>
+    <title>JAVA基础-运算符 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据类型转换</h1>
+                    <h1 class="description center-align post-title">JAVA基础-运算符</h1>
                 </div>
             </div>
         </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-02
+                    2020-07-03
                 </div>
                 
 
@@ -462,101 +462,212 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h1><p><font color=skybule>Java程序中要求参与的计算的数据，必须要保证数据类型的一致性，如果数据类型不一致将发生类型的转换。</font><br>&nbsp;</p>
-<h2 id="1-1-ensp-自动转换"><a href="#1-1-ensp-自动转换" class="headerlink" title="1.1&ensp;自动转换"></a>1.1&ensp;自动转换</h2><p>一个 <font color=skybule>int</font> 类型变量和一个 <font color=skybule>byte</font> 类型变量进行加法运算， 结果会是什么数据类型？   </p>
-<pre><code>int  i = 1;  
-byte  b = 2;  </code></pre><p>运算结果，变量的类型将是<font color=skybule>int</font> 类型，这就是出现了数据类型的自动类型转换现象。  </p>
-<p>自动转换：将 <font color=skybule>取值范围小的类型</font> 自动提升为 <font color=skybule>取值范围大的类型</font>取值范围大的类。  </p>
-<pre><code>public static void main(String[] args) {
-     int i = 1;
-     byte b = 2;
-     // byte x = b + i; // 报错
-     //int类型和byte类型运算，结果是int类型
-     int j = b + i;
-     System.out.println(j);
-}</code></pre><p>&nbsp;<br>转换原理的图解：<br><font color=skybule>byte</font> 类型内存占有1个字节，在和 <font color=skybule>int</font> 类型运算会提升为 <font color=skybule>int</font> 类型 ，自动补充3个字节，因此计后的结果还是 <font color=skybule>int</font>类<br>型     </p>
-<p>如图所示：<br><img src="https://note.youdao.com/yws/api/personal/file/1469FCB17CF84F099D42064C4AE8D702?method=download&shareKey=11933d04d2a67f68a0f5b69b3e056920" alt=""></p>
-<p>同样道理，当一个 <font color=skybule>int</font>  类型变量和一个<font color=skybule> double</font> 变量运算时， <font color=skybule>int</font> 类型将会自动提升为 <font color=skybule> double</font> 类型进行运算。</p>
-<pre><code>public static void main(String[] args) {
-    int i = 1;
-    double d = 2.5;
-    //int类型和double类型运算，结果是double类型
-    //int类型会提升为double类型
-    double e = d+i;
-    System.out.println(e);
-}   </code></pre><p>&nbsp;</p>
-<p>转换规则:<br>范围小的类型向范围大的类型提升， <font color = skybule> byte </font>、<font color = skybule>short</font>、<font color = skybule>char</font> 运算时直接提升为<font color = skybule> int </font>。</p>
-<pre><code>byte、short、char‐‐&gt;int‐‐&gt;long‐‐&gt;float‐‐&gt;double  </code></pre><p>&nbsp;</p>
-<h2 id="1-2-ensp-强制转换"><a href="#1-2-ensp-强制转换" class="headerlink" title="1.2&ensp;强制转换"></a>1.2&ensp;强制转换</h2><p>将 1.5 赋值到 <font color = skybule> int </font> 类型变量会发生什么？产生编译失败，肯定无法赋值。  </p>
-<pre><code>int i = 1.5;  //错误  </code></pre><p><font color = skybule>double</font> 类型内存8个字节，<font color = skybule> int </font>类型内存4个字节。 1.5 是 <font color = skybule>double</font>  类型，取值范围大于 <font color = skybule> int </font> 。可以理解为 <font color = skybule> double </font> 是8<br>升的水壶， <font color = skybule> int </font> 是4升的水壶，不能把大水壶中的水直接放进小水壶去。  </p>
-<p>想要赋值成功，只有通过强制类型转换，将 double 类型强制转换成 int 类型才能赋值  </p>
-<p>强制类型转换：将 取值范围大的类型 强制转换成 取值范围小的类型 。  </p>
-<p>比较而言，自动转换是Java自动执行的，而强制转换需要我们自己手动执行。      </p>
-<p>转换格式：<br>数据类型&ensp; 变量名 = (数据类型)&ensp; 被转数据值  </p>
-<p>将 1.5 赋值到 <font color = skybule>int</font> 类型，代码修改为：  </p>
-<pre><code>// double类型数据强制转成int类型，直接去掉小数点。
-int i = (int)1.5;</code></pre><p>同样道理，当一个 <font color = skybule>short</font> 类型与 1 相加，我们知道会类型提升，但是还想给结果赋值给<font color = skybule>short</font>类型变量，就需要强制转换。</p>
-<pre><code>public static void main(String[] args) {
-    //short类型变量，内存中2个字节
-    short s = 1;
-    /*
-    出现编译失败
-    s和1做运算的时候，1是int类型，s会被提升为int    类型
-    s+1后的结果是int类型，将结果在赋值会short类    型时    发生错误
-    short内存2个字节，int类型4个字节
-    必须将int强制转成short才能完成赋值
-    */
-    s = s + 1；//编译失败
-    s = (short)(s+1);//编译成功
-}  </code></pre><p> 转换原理图解：<br> <img src="https://note.youdao.com/yws/api/personal/file/475938AE2C5146F18BE84237E6791E62?method=download&shareKey=c2c1f101b29f2b7a06acf645a0dc1cad" alt="">  </p>
-<p> <font color=red size = 5>tip:</font>  </p>
-<p>  浮点转成整数，直接取消小数点，可能造成数据损失精度。<br>  <font color = skybule>int</font> 强制转成 <font color = skybule>short</font> 砍掉2个字节，可能造成数据丢失。</p>
-<pre><code>// 定义s为short范围内最大值
-short s = 32767;
-// 运算后，强制转换，砍掉2个字节后会出现不确定的    结果
-s = (short)(s + 10);  </code></pre><p>&nbsp;  </p>
-<h2 id="1-3-ensp-ASCII编码表"><a href="#1-3-ensp-ASCII编码表" class="headerlink" title="1.3 &ensp;ASCII编码表"></a>1.3 &ensp;ASCII编码表</h2><pre><code>public static void main(String[] args) {
-//字符类型变量
-char c = &apos;a&apos;;
-int i = 1;
-//字符类型和int类型计算
-System.out.println(c+i);//输出结果是98
-}  </code></pre><p>在计算机的内部都是二进制的0、1数据，如何让算机可以直接识别人类文字的问题呢？就产生出编码表的概念。  </p>
-<p>编码表 ：就是将人类的文字和一个十进制数进行对应起来组成一张表格。</p>
-<table>
+                <h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>&nbsp;  </p>
+<h2 id="2-1-ensp-算数运算符"><a href="#2-1-ensp-算数运算符" class="headerlink" title="2.1 &ensp; 算数运算符"></a>2.1 &ensp; 算数运算符</h2><table>
 <thead>
 <tr>
-<th>字符</th>
-<th>数值</th>
+<th>算数运算符包括：</th>
+<th></th>
 </tr>
 </thead>
 <tbody><tr>
-<td>0</td>
-<td>48</td>
+<td>+</td>
+<td>加法运算，字符串连接运算</td>
 </tr>
 <tr>
-<td>9</td>
-<td>57</td>
+<td>-</td>
+<td>减法运算</td>
 </tr>
 <tr>
-<td>A</td>
-<td>65</td>
+<td>*</td>
+<td>乘法运算</td>
 </tr>
 <tr>
-<td>Z</td>
-<td>90</td>
+<td>/</td>
+<td>除法运算</td>
 </tr>
 <tr>
-<td>a</td>
-<td>97</td>
+<td>%</td>
+<td>取模运算，两个数字相除取余数</td>
 </tr>
 <tr>
-<td>z</td>
-<td>122</td>
+<td>++,–</td>
+<td>自增,自减运算</td>
 </tr>
 </tbody></table>
-<p><font color = gray>将所有的英文字母，数字，符号都和十进制进行了对应，因此产生了世界上第一张编码表ASCII（<br>American Standard Code for Information Interchange 美国标准信息交换码）</font>  </p>
-<p>tips:<br><font color = gray>在<font color = skybule>char</font> 类型和<font color = skybule>int</font>类型计算的过程中，<font color = skybule>char</font>类型的字符先查询编码表，得到97，再和1求和，结果为98。<font color = skybule>char</font>类型提升<br>为了<font color = skybule>int</font>类型。<font color = skybule>char</font>类型内存2个字节，<font color = skybule>int</font>类型内存4个字节。</font>  </p>
+<p>java中，整数使用以上运算符，无论怎么计算，也不会得到小数。  </p>
+<pre><code>public static void main(String[]args) {
+    int i = 1234;
+    System.out.println(i / 1000 * 1000); //计算的结果是1000
+}</code></pre><p><font color = 'skyblue'>++</font>  运算，变量自己增长1。反之，<font color = 'skyblue'>–</font>运算，变量自己减1，用法与<font color = 'skyblue'>++</font> 一致。  </p>
+<ul>
+<li><p>独立运算:  </p>
+<ul>
+<li>变量在独立运算时，<font color = 'skyblue'>前++</font> 和 <font color = 'skyblue'>后++</font>没有区别  </li>
+<li>变量前 ++： 例如 ++i。  </li>
+<li>变量后 ++： 例如 i++。  </li>
+</ul>
+</li>
+<li><p>混合计算：  </p>
+<ul>
+<li><p>和其他变量放在一起，前++ 和 后++ 就产生了不同。  </p>
+</li>
+<li><p>变量 前++ ：变量a自身加1，将加1后的结果赋值给b，也就是a先计算。a 和 b的结果都2。  </p>
+<pre><code>public static void main(String[]args){
+  int a = 1;
+  int b = ++a;
+  System.out.println(a);//计算结果是2
+  System.out.println(b);//计算结果是2
+}    </code></pre></li>
+<li><p>变量 后++ ：变量a先把自己的值1，赋值给变量b，此时变量b的值就是1，变量a自己再加1。a的结果是2，b<br>的结果是1。  </p>
+<pre><code>public static void main(String[] args) {
+int a = 1;
+int b = a++;
+System.out.println(a);//计算结果是2
+System.out.println(b);//计算结果是1
+}  </code></pre></li>
+</ul>
+</li>
+<li><p>+符号在字符串中的操作：   </p>
+<ul>
+<li><p>+符号在遇到字符串的时候，表示连接、拼接的含义        </p>
+</li>
+<li><p>“a”+”b”的结果是“ab”，连接含义  </p>
+<pre><code>public static void main(String[] args){
+System.out.println(&quot;5+5=&quot;+5+5);//输出5+5=55
+}      </code></pre></li>
+</ul>
+</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="2-2-ensp-赋值运算符"><a href="#2-2-ensp-赋值运算符" class="headerlink" title="2.2 &ensp;赋值运算符"></a>2.2 &ensp;赋值运算符</h2><table>
+<thead>
+<tr>
+<th>赋值运算符包括:</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>等于号</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>加等于</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>减等于</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>乘等于</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>除等于</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>取模等</td>
+</tr>
+</tbody></table>
+<p>tips:&ensp; 赋值运算符，就是将符号右边的值，赋给左边的变量。  </p>
+<pre><code>public static void main(String[] args){
+    int i = 5;
+    i+=5;//计算方式 i=i+5 变量i先加5，再赋值变量i
+    System.out.println(i); //输出结果是10
+}  </code></pre><p>&nbsp;</p>
+<h2 id="2-3-ensp-比较运算符"><a href="#2-3-ensp-比较运算符" class="headerlink" title="2.3 &ensp;比较运算符"></a>2.3 &ensp;比较运算符</h2><table>
+<thead>
+<tr>
+<th>比较运算符包括</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>==</td>
+<td>比较符号两边数据是否相等，相等结果是true。</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>比较符号左边的数据是否小于右边的数据，如果小于结果是true。</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>比较符号左边的数据是否大于右边的数据，如果大于结果是true。</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>比较符号左边的数据是否小于或者等于右边的数据，如果小于结果是true。</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>比较符号左边的数据是否大于或者等于右边的数据，如果小于结果是true。</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于符号 ，如果符号两边的数据不相等，结果是true。</td>
+</tr>
+</tbody></table>
+<p>比较运算符，是两个数据之间进行比较的运算，运算结果都是布尔值 true 或者 false 。  </p>
+<pre><code>public static void main(String[] args) {
+System.out.println(1==1);//true
+System.out.println(1&lt;2);//true
+System.out.println(3&gt;4);//false
+System.out.println(3&lt;=4);//true
+System.out.println(3&gt;=4);//false
+System.out.println(3!=4);//true
+}</code></pre><p>&nbsp;</p>
+<h2 id="2-4-ensp-逻辑运算符"><a href="#2-4-ensp-逻辑运算符" class="headerlink" title="2.4 &ensp;逻辑运算符"></a>2.4 &ensp;逻辑运算符</h2><ul>
+<li><p>&amp;&amp; 短路与  </p>
+<ul>
+<li>两边都是true，结果是true  </li>
+<li>一边是false，结果是false</li>
+<li>短路特点：符号左边是false，右边不再运算  </li>
+</ul>
+</li>
+<li><p>| | 短路或 </p>
+<ul>
+<li>两边都是flase，结果是flase </li>
+<li>一边是true，结果是true</li>
+<li>短路特点：符号左边是true，右边不再运算  </li>
+</ul>
+</li>
+<li><p>! 取反</p>
+<ul>
+<li>! true 结果是false</li>
+<li>! false结果是true  </li>
+</ul>
+<p>tips:逻辑运算符，是用来连接两个布尔类型结果的运算符，运算结果都是布尔值 true 或者 false  </p>
+<pre><code>public static void main(String[] args) {
+    System.out.println(true &amp;&amp; true); //true
+    System.out.println(true &amp;&amp; false); //false
+    System.out.println(false &amp;&amp; true); //false，右边不计算
+    System.out.println(false || false); //falase
+    System.out.println(false || true); //true
+    System.out.println(true || false); //true，右边不计算
+    System.out.println(!false); //true
+}  </code></pre></li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="2-4-ensp-三元运算符"><a href="#2-4-ensp-三元运算符" class="headerlink" title="2.4 &ensp;三元运算符"></a>2.4 &ensp;三元运算符</h2><ul>
+<li><p>三元运算符格式：  <font color = 'skyblue'>数据类型 变量名 = 布尔类型表达式？结果1：结果2 </font>  </p>
+</li>
+<li><p>三元运算符计算方式：  </p>
+<ul>
+<li><p>布尔类型表达式结果是true，三元运算符整体结果为结果1，赋值给变量。</p>
+</li>
+<li><p>布尔类型表达式结果是false，三元运算符整体结果为结果2，赋值给变量。  </p>
+<pre><code>public static void main(String[] args) {
+int i = (1==2 ? 100 : 200);
+System.out.println(i); //200
+int j = (3&lt;=4 ? 500 : 600);
+System.out.println(j); //500
+}</code></pre></li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -582,7 +693,7 @@ System.out.println(c+i);//输出结果是98
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://huangguanglong1998.github.io/2020/07/02/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">http://huangguanglong1998.github.io/2020/07/02/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</a>
+                    <a href="http://huangguanglong1998.github.io/2020/07/03/JAVA%E5%9F%BA%E7%A1%80-%E8%BF%90%E7%AE%97%E7%AC%A6/">http://huangguanglong1998.github.io/2020/07/03/JAVA%E5%9F%BA%E7%A1%80-%E8%BF%90%E7%AE%97%E7%AC%A6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -789,9 +900,10 @@ System.out.println(c+i);//输出结果是98
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/07/03/JAVA%E5%9F%BA%E7%A1%80-%E8%BF%90%E7%AE%97%E7%AC%A6/">
                     <div class="card-image">
@@ -840,9 +952,9 @@ System.out.println(c+i);//输出结果是98
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -851,6 +963,7 @@ System.out.println(c+i);//输出结果是98
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -869,36 +982,20 @@ System.out.println(c+i);//输出结果是98
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/02/java%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%8F%8A%E5%B8%B8%E9%87%8F/">
+                <a href="/2020/07/02/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="java基础-变量，常量及数据类型">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="数据类型转换">
                         
-                        <span class="card-title">java基础-变量，常量及数据类型</span>
+                        <span class="card-title">数据类型转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JAVA基础-变量1.1常量的概述&emsp;&emsp; 常量：是指在Java程序中固定不变的数据.  
-&nbsp; 
-1.2常量的分类
-
-
-类型
-含义
-数据举例
-
-
-
-整数常量
-所有的整数
-0，1，  567，  -9
-
-
-小数常量
-
+                            数据类型转换Java程序中要求参与的计算的数据，必须要保证数据类型的一致性，如果数据类型不一致将发生类型的转换。&nbsp;
+1.1&ensp;自动转换一个 int 类型变量和一个 byte 类型变量进行加法运算， 结果会是什么数据类型？ 
                         
                     </div>
                     <div class="publish-info">
